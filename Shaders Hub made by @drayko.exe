@@ -1,0 +1,76 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+   Name = "Shaders Hub | by @drayko.exe",
+   LoadingTitle = "Carregando Shaders...",
+   LoadingSubtitle = "by @drayko.exe",
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = "DraykoShaders", 
+      FileName = "ShaderConfig"
+   },
+   Theme = "Bloxburg", -- Tema Carmesim/Vermelho
+   KeySystem = false
+})
+
+-- ABA DE SHADERS
+local TabShaders = Window:CreateTab("Visual Shaders", 4483362458)
+
+TabShaders:CreateSection("Lista de Shaders - by @drayko.exe")
+
+local shaders = {
+    ["Purple Shaders"] = "https://raw.githubusercontent.com/drayko-exe/shaders-by-drayko.exe/refs/heads/main/shaders%20by%20%40drayko.exe",
+    ["Red Shaders"] = "https://raw.githubusercontent.com/drayko-exe/shaders-v2-by-drayko.exe/refs/heads/main/shaders%20v2",
+    ["c00lk1dd Shaders"] = "https://raw.githubusercontent.com/drayko-exe/Shaders-Script-v3/refs/heads/main/Shaders%20v3%20by%20%40drayko.exe",
+    ["SpongeBob Shaders"] = "https://raw.githubusercontent.com/drayko-exe/shaders-v4-spongebob/refs/heads/main/Shaders%20by%20drayko.exe",
+    ["Rainbow Shaders"] = "https://raw.githubusercontent.com/drayko-exe/Shadeers-v5/refs/heads/main/by%20drayko",
+    ["Blue Nebula Shaders"] = "https://raw.githubusercontent.com/drayko-exe/Shaders-v6/refs/heads/main/made%20by%20me",
+    ["WeirdCore Shaders"] = "https://raw.githubusercontent.com/drayko-exe/Shaders-v7/refs/heads/main/made%20by%20%40drayko.exe"
+}
+
+for name, url in pairs(shaders) do
+    TabShaders:CreateButton({
+       Name = name .. " (by @drayko.exe)",
+       Callback = function()
+           loadstring(game:HttpGet(url))()
+       end,
+    })
+end
+
+--- ABA DE SOCIAIS ---
+local TabSocial = Window:CreateTab("Sociais", 4483362458)
+
+TabSocial:CreateSection("Redes Sociais - by @drayko.exe")
+
+TabSocial:CreateButton({
+   Name = "TikTok: @drayko.exe",
+   Callback = function()
+       setclipboard("@drayko.exe")
+       Rayfield:Notify({
+          Title = "Copiado!",
+          Content = "Nome do TikTok copiado para a área de transferência.",
+          Duration = 3,
+          Image = 4483362458,
+       })
+   end,
+})
+
+TabSocial:CreateButton({
+   Name = "Discord (Clique para Copiar)",
+   Callback = function()
+       setclipboard("https://discord.gg/7AwgZUBm")
+       Rayfield:Notify({
+          Title = "Link Copiado!",
+          Content = "O convite do Discord foi copiado com sucesso.",
+          Duration = 3,
+          Image = 4483362458,
+       })
+   end,
+})
+
+Rayfield:Notify({
+   Title = "Drayko Hub Ativado",
+   Content = "Créditos: @drayko.exe",
+   Duration = 5,
+   Image = 4483362458,
+})
